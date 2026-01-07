@@ -1,0 +1,79 @@
+version: 2
+
+sources:
+  - name: retail
+    database: mysql
+    schema: retail_db
+    tables:
+      - name: customers
+        description: "Customer master data"
+        columns:
+          - name: customer_id
+            description: "Primary key for customers"
+            tests:
+              - unique
+              - not_null
+      
+      - name: products
+        description: "Product catalog data"
+        columns:
+          - name: product_id
+            description: "Primary key for products"
+            tests:
+              - unique
+              - not_null
+      
+      - name: stores
+        description: "Store location data"
+        columns:
+          - name: store_id
+            description: "Primary key for stores"
+            tests:
+              - unique
+              - not_null
+      
+      - name: shippers
+        description: "Shipping company data"
+        columns:
+          - name: shipper_id
+            description: "Primary key for shippers"
+            tests:
+              - unique
+              - not_null
+      
+      - name: orders
+        description: "Order header data"
+        columns:
+          - name: order_id
+            description: "Primary key for orders"
+            tests:
+              - unique
+              - not_null
+      
+      - name: order_items
+        description: "Order line item data"
+        columns:
+          - name: order_item_id
+            description: "Primary key for order items"
+            tests:
+              - unique
+              - not_null
+
+models:
+  - name: stg_customers
+    description: "Staged customer data with basic cleansing"
+  
+  - name: stg_products
+    description: "Staged product data with profit margin calculation"
+  
+  - name: stg_stores
+    description: "Staged store data with basic cleansing"
+  
+  - name: stg_shippers
+    description: "Staged shipper data with basic cleansing"
+  
+  - name: stg_orders
+    description: "Staged order data with shipping time calculation"
+  
+  - name: stg_order_items
+    description: "Staged order items data"
