@@ -93,6 +93,8 @@ This will start:
 - **Airflow Scheduler**
 - **PostgreSQL** (Airflow metadata) on port 5432
 
+![Docker Compose Up](images/docker-up.png)
+
 ### Step 3: Wait for Services to Initialize
 
 Check service health:
@@ -133,6 +135,8 @@ SELECT COUNT(*) FROM customers;
 
 Type `quit` to exit.
 
+![Test Trino Connection](images/test-connection-trino.png)
+
 ### Step 7: Access Airflow
 
 Open browser: http://localhost:8081
@@ -147,6 +151,12 @@ Open browser: http://localhost:8081
 2. Toggle it to "ON" (unpause)
 3. Click the "Play" button to trigger a manual run
 4. Monitor the progress in the Graph or Grid view
+
+![Run Airflow DAG](images/run-airflow.png)
+
+Once the DAG completes successfully:
+
+![Successful Airflow Execution](images/success-airflow.png)
 
 ### Step 9: Verify dbt Models
 
@@ -239,6 +249,10 @@ dbt docs generate --profiles-dir .
 # Check dbt version
 dbt --version
 ```
+
+![dbt Test Connection](images/test-dbt.png)
+
+![dbt Run Models](images/dbt-run-models.png)
 
 ### MySQL Commands
 
